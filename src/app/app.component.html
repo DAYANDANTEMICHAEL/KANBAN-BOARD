@@ -1,0 +1,11 @@
+
+<!-- app.component.html -->
+<mat-drawer-container class="portfolio-container">
+  <mat-drawer mode="side" [opened]="isSidenavOpen" *ngIf="showSidebar">
+    <app-sidebar></app-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-navbar *ngIf="showNavbar"></app-navbar>
+    <app-body></app-body>
+  </mat-drawer-content>
+</mat-drawer-container>

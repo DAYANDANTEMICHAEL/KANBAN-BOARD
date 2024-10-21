@@ -1,0 +1,136 @@
+.form-container {
+    position: relative;
+    background: rgb(2,0,36);
+background: radial-gradient(circle, rgba(2,0,36,1) 30%, rgba(12,16,80,1) 65%, rgba(18,124,145,1) 100%);
+    overflow: hidden; /* Ensure the overlay doesn't extend outside the container */
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust the second value (0.5) to change the darkness level */
+    z-index: 1; /* Ensure the overlay is above the background image */
+}
+
+.form-container > * {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+}
+
+
+/* Add some basic styling to the form */
+form {
+    width: 400px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Style the labels and inputs */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+input,
+textarea {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+    color: #ffffff;
+}
+
+input#password {
+    margin-bottom: 10px;
+}
+
+input[type="date"] {
+    padding: 10px 10px 10px 20px;
+    /* add some extra padding for the date picker icon */
+}
+
+textarea {
+    height: 100px;
+    resize: vertical;
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent background */
+}
+
+/* Style the submit button */
+button[type="submit"],
+.submit1 {
+    
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+    color: #ffffff;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+button[type="submit"]:hover,
+.submit1:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly more opaque on hover */
+    color: #042145;
+    transform: scale(1.1);
+}
+
+.sticky button+button {
+    margin-left: 10px;
+}
+
+.board-form {
+    width: 400px;
+    margin-right: 5px;
+}
+
+.board-form-inner1,
+.board-form-inner2 {
+    height: 100%;
+    background-color: none;
+}
+
+.modal-body,
+.modal-content,
+.board-form-inner2 {
+    width: fit-content;
+}
+
+.board-form-inner2 {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+hr {
+    background-color: #ffffff;
+}
+
+.form-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Make the form responsive */
+@media (max-width: 600px) {
+    form {
+        margin: 20px;
+    }
+}

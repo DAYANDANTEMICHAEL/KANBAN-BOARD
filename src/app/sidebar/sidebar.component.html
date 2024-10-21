@@ -1,0 +1,50 @@
+<div class="sidebar">
+  <!-- For student role -->
+  <div class="user-profile" *ngIf="user.role === 'student'; else userInfo">
+    <div class="avatar">
+      <img [src]="'../assets/images/' + user.avatar" alt="{{ user.firstName }} Avatar" />
+    </div>
+    <div class="user-info">
+      <h3>
+        <span class="first-name">{{ user.firstName }}</span>
+        <span class="last-name">{{ user.lastName }}</span>
+      </h3>
+      <p>{{ user.role | uppercase }}</p>
+    </div>
+  </div>
+  
+  <!-- For other roles -->
+  <ng-template #userInfo>
+    <div class="user-profile">
+      <div class="avatar">
+      <img src="../../assets/images/GCLogo.png" alt="Gordon College Logo" />
+    </div>
+    <div class="user-info">
+      <h3>Gordon College Kanban Board</h3>
+    </div>
+    </div>
+  </ng-template>
+
+  <hr class="divider">
+  <nav>
+    <ul>
+      <li>
+        <a class="add-task-btn" (click)="openCreateTaskModal()">
+          <mat-icon>add</mat-icon> 
+           Add Task
+        </a>
+        
+        <a class="edit-bg-btn" (click)="openChangeBackgroundModal()">
+          <mat-icon>edit</mat-icon> 
+           Edit BG
+        </a>
+      </li>
+    </ul>
+  </nav>
+  
+  <div class="logout">
+    <a href="#">
+      <mat-icon>exit_to_app</mat-icon>
+    </a>
+  </div>
+  

@@ -1,0 +1,175 @@
+.board-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding: 20px;
+  background-size: cover; 
+  height: calc(100% - 64px); 
+  background-position: center;
+}
+
+.kanban-board {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  position: relative;
+}
+
+.kanban-column {
+  background-color: #1d2125;
+  width: 300px;
+  height: 890px;
+  margin-left: 40px;
+  border-radius: 15px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888888 transparent;
+}
+
+.column-length {
+  position: absolute;
+  background-color: #3a3333;
+  border: solid 2px #fff;
+  top: -10px;
+  right: -10px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column-length h2 {
+  color: #ffffff !important;
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+.h2-container {
+  position: relative;
+  display: flex;
+
+  h2 {
+    color: #ffffff;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    font-size: 18px;
+    position: left !important;
+    font-weight: bold;
+  }
+
+  button {
+    flex-basis: 50px;
+  }
+}
+
+.board-form {
+  width: 400px;
+  margin-right: 5px;
+}
+
+.board-form-inner1,
+.board-form-inner2 {
+  height: 100%;
+  background-color: #042145;
+}
+
+.modal-body,
+.modal-content,
+.board-form-inner2 {
+  width: fit-content;
+}
+
+.modal-header {
+  cursor: move;
+}
+
+.modal-dialog {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.change-bg-modal {
+  padding: 20px;
+  background-color: #1b1c1d;
+  border-radius: 10px;
+  width: 300px;
+  color: white;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.back-btn,
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.bg-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bg-option {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.bg-option img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.bg-option.custom-option {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 24px;
+}

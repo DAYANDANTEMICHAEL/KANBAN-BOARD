@@ -1,0 +1,104 @@
+.user-profile {
+  padding: 20px;
+  text-align: center;
+}
+
+.avatar {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  border-radius: 50%; /* Makes the div circular */
+  overflow: hidden; /* Ensures the image does not overflow the circle */
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff; /* Optional: background color for better visibility */
+  border: solid 3px #fff;
+}
+
+.avatar img {
+  width: 100%; /* Adjust to ensure the image fills the avatar */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.user-info h3 {
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1; /* Reduces line height to remove extra spacing */
+  color: white;
+  font-weight: 500;
+}
+
+.user-info .first-name,
+.user-info .last-name,
+.user-info p {
+  display: block; /* Makes each name part appear on a new line */
+}
+
+.user-info p {
+  font-size: 13px;
+  color: white;
+}
+
+/* Navigation styles */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav li {
+  position: relative; /* Optional: To manage any child elements if needed */
+}
+
+nav li a {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+nav li a i {
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+/* Hover effect for "Add Task" button */
+nav li a.add-task-btn:hover {
+  background-color: rgb(40, 120, 180); /* Custom hover color for Add Task */
+}
+
+/* Hover effect for "Edit BG" button */
+nav li a.edit-bg-btn:hover {
+  background-color: rgb(50, 140, 200); /* Custom hover color for Edit BG */
+}
+
+/* Divider styling */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #b6afaf;
+  margin-top: -10px;
+}
+
+/* Logout section styles */
+.logout {
+  margin-top: 500px; /* Pushes the logout button to the bottom of the container */
+  padding: 20px;
+}
+
+.logout a {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.logout a i {
+  font-size: 34px;
+}
+
+/* Separate hover effects for logout button */
+.logout a:hover {
+  color: #f1f1f1; /* Lighter color on hover */
+}

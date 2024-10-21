@@ -1,0 +1,8 @@
+<div class="change-bg-options">
+    <h3>Select Background</h3>
+    <div class="background-option" *ngFor="let bg of backgrounds">
+        <img [src]="bg.src" (click)="changeBackground(bg.src)" alt="Background Image" />
+       
+    </div>
+    <button type="submit">Change Background</button>
+</div>

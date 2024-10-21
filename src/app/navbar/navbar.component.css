@@ -1,0 +1,47 @@
+mat-toolbar {
+  background-color: #091824;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.date-time {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+
+button[mat-icon-button] {
+  background-color: transparent; /* Remove the default background */
+  border: none; /* Remove default border */
+  padding: 8px; /* Add some padding around the icon */
+  margin-right: 40px; /* Add margin to the right */
+}
+
+
+button[mat-icon-button] .mat-icon {
+  color: rgb(
+    255,
+    255,
+    255
+  ); /* Change the icon color to white or any color you prefer */
+  font-size: 24px; /* Adjust the size of the icon */
+}
+
+/* Add a hover effect */
+button[mat-icon-button]:hover {
+  background-color: rgba(
+    54,
+    51,
+    51,
+    0.2
+  ); /* Add a semi-transparent background on hover */
+  border-radius: 4px; /* Add rounded corners */
+}

@@ -1,0 +1,28 @@
+<form class="sticky" [formGroup]="taskForm" (ngSubmit)="saveTask()">
+    <div class="header">
+        <h2 class="white">Update Task</h2>
+        <hr class="white">
+    </div>
+    <div>
+        <label for="taskName">Task Name</label>
+        <input id="taskName" formControlName="taskName">
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description"></textarea>
+    </div>
+    <div>
+        <label for="createdDate">Start Date</label>
+        <input type="date" id="createdDate" formControlName="createdDate">
+    </div>
+    <div>
+        <label for="dueDate">Due Date</label>
+        <input type="date" id="dueDate" formControlName="dueDate">
+    </div>
+    <div>
+        <label for="assignee">Assignee</label>
+        <input id="assignee" formControlName="assignee">
+    </div>
+    <button type="submit">Update Task</button>
+    <button (click)="closeUpdateForm()" class="submit1">Close</button>
+</form>

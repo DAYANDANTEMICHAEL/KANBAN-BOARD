@@ -1,0 +1,14 @@
+<div class="kanban-column">
+    <h2>{{ title }}</h2>
+    <hr>
+    <div class="kanban-column">
+        <div cdkDropList [cdkDropListData]="tasks" (cdkDropListDropped)="drop($event)"
+            cdkDropListOrientation="vertical" >
+            <ng-content></ng-content>
+            <div *ngFor="let task of tasks" cdkDrag [cdkDragData]="task">
+                <app-kanban-task-card [task]="task" (edit)="editTask(task)"
+                    (delete)="deleteTask(task.id)"></app-kanban-task-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,155 @@
+<div class="board-container" [ngStyle]="{'background-image': 'url(../../assets/images/board-bg/' + user.background + ')'}">
+
+  <div class="right">
+    <div class="kanban-board" cdkDropListGroup>
+      <div
+        *ngFor="let column of columns"
+        cdkDropList
+        [cdkDropListData]="getTasksByStatus(column.status)"
+        class="kanban-column"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListConnectedTo]="connectedLists"
+        id="cdk-drop-list-{{ column.title }}"
+      >
+        <div class="h2-container">
+          <h2>
+            {{ column.title }}
+            <div class="column-length">
+              <h2>{{ getTasksByStatus(column.status).length }}</h2>
+            </div>
+          </h2>
+        </div>
+
+        <hr />
+
+        <div class="column-task">
+          <div
+            *ngFor="let task of getTasksByStatus(column.status)"
+            class="example-box"
+            cdkDrag
+            [cdkDragData]="task"
+          >
+            <app-kanban-task-card
+              [task]="task"
+              (edit)="editTask(task)"
+              (delete)="confirmDeleteTask(task.id)"
+            ></app-kanban-task-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Update Task Modal -->
+<div
+  class="modal fade"
+  id="updateTaskModal"
+  tabindex="-1"
+  aria-labelledby="updateTaskModalLabel"
+  aria-hidden="true"
+  cdkDrag
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" cdkDragHandle>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="taskToEdit">
+          <div class="board-form-inner2">
+            <app-kanban-update-task-form
+              [task]="taskToEdit"
+              (taskUpdated)="updateTask($event)"
+              (closeUpdateFormEvent)="closeUpdateForm()"
+            ></app-kanban-update-task-form>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Task Modal -->
+<div
+  class="modal fade"
+  id="createTaskModal"
+  tabindex="-1"
+  aria-labelledby="createTaskModalLabel"
+  aria-hidden="true"
+  cdkDrag
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" cdkDragHandle>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="board-form-inner2">
+          <app-kanban-create-task-form
+            (taskCreated)="onTaskCreated($event)"
+            (closeCreateFormEvent)="closeCreateForm()"
+          ></app-kanban-create-task-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Background Modal -->
+<!-- Change Background Modal -->
+<div
+  class="modal fade"
+  id="changeBackgroundModal"
+  tabindex="-1"
+  aria-labelledby="changeBackgroundModalLabel"
+  aria-hidden="true"
+  cdkDrag
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" cdkDragHandle>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="board-form-inner2">
+          <app-kanban-change-bg
+          (backgroundChanged)="changeBackground($event)"
+          (closeChangeBgFormEvent)="closeChangeBgForm()"
+          ></app-kanban-change-bg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Confirmation Modal -->
+
+<app-confirmation-modal
+  [title]="confirmationTitle"
+  [message]="confirmationMessage"
+  (confirmed)="handleConfirmedAction()"
+>
+</app-confirmation-modal>

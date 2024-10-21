@@ -1,0 +1,47 @@
+<div
+  class="task-card"
+  [ngClass]="{ backlog: isBacklog, warning: isWarning }"
+  cdkDrag
+>
+  <h2
+    class="expand"
+    (click)="toggleDetails()"
+    (click)="toggleMaximize()"
+    style="color: #fff"
+  >
+    {{ task?.taskName }}
+  </h2>
+
+  <div class="hide-first" *ngIf="isMaximized">
+    <p class="justify" style="color: #fff; font-size: 12px">
+      {{ task?.description }}
+    </p>
+    <p style="color: #8a8787; font-size: 12px">
+      Start Date: {{ task?.createdDate | date : "MMMM d, y" }}
+    </p>
+    <p [ngClass]="{ 'done-duedate': isDone, duedate: !isDone }" style="color: #8a8787; font-size: 12px">
+      Due Date: {{ task?.dueDate | date : "MMMM d, y" }}
+      </p>
+    <div
+      [ngClass]="{
+        done: isDone,
+        hold: isHold,
+        'backlog-circle': isBacklogCircle
+      }"
+    ></div>
+
+  </div>
+
+  <div class="time">
+    <p>
+      <b>{{ timeRemaining }}</b>
+    </p>
+  </div>
+
+  <div class="button-edit">
+    <button (click)="editTask()"><i class="fa-solid fa-pen"></i></button>
+  </div>
+  <div class="button-delete">
+    <button (click)="deleteTask()"><i class="fa-solid fa-trash"></i></button>
+  </div>
+</div>

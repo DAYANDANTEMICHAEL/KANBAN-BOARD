@@ -1,0 +1,24 @@
+.portfolio-container {
+  height: 100vh; /* Make the container fill the viewport height */
+  display: flex; /* Ensure it behaves as a flex container */
+  flex-direction: column; /* Ensure the top nav is on top */
+  background-color: #091824;
+}
+
+mat-drawer {
+  width: 150px; /* Set the width of the sidebar */
+  height: 100%; /* Adjust for the height of the toolbar */
+  background-color: #091824;
+  transition: width 0.3s ease; /* Smooth transition */
+}
+
+mat-drawer[ng-reflect-opened="false"] {
+  width: 0; /* Collapse width */
+  overflow: hidden; /* Hide content */
+}
+
+mat-drawer-content {
+  flex: 1; /* Make the body fill the remaining space */
+  height: calc(100% - 60px); 
+  background-color: #091824;
+}
